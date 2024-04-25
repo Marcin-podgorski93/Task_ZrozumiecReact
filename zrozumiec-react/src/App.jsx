@@ -1,4 +1,4 @@
-import { PersonInfo } from "./assets/components/PersonInfo";
+import { PersonInfo } from "./components/PersonInfo";
 
 function App() {
   const jan = {
