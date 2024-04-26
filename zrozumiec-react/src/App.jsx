@@ -1,30 +1,31 @@
-import { PersonInfo } from "./components/PersonInfo";
+import { ButtonStrong } from "./components/ButtonStrong";
 
 function App() {
-  const jan = {
-    name: "Jan",
-    lastName: "Kowalski",
-    mail: "j.kow@gmail.com",
-    tel: "+48 888 000 111",
-  };
-  const janina = {
-    name: "Janina",
-    lastName: "Kowalska",
-    mail: "janina.kow@gmail.com",
-    tel: "+48 888 000 222",
-  };
-  const karol = {
-    name: "Karol",
-    lastName: "Kowalski",
-    mail: "k.kow@gmail.com",
-  };
+  const buttonEl = (
+    <button
+      onClick={() => {
+        alert("Klik");
+      }}
+    >
+      Pokaz spoiler
+    </button>
+  );
+
+  // document.querySelector("button").addEventListener("click", () => {
+  //   alert("Klik");
+  // });
+
   return (
     <>
-      <PersonInfo person={jan} />
-      <br />
-      <PersonInfo person={janina} />
-      <br />
-      <PersonInfo person={karol} />
+      <h1>Gwiezdne wojny V</h1>
+      <h2>Rok produkcji</h2>
+      <h2>Fabuła</h2>
+      <p>Dobrzy walcza ze złem. Trzeba wyłączyć pole siłowe.</p>
+      {buttonEl}
+      <ButtonStrong onClick={() => alert("Gruby Klik")}>
+        Pokaz GRUBY spoiler
+      </ButtonStrong>
+      <p>Vader okazuje sie być ojcem Luka.</p>
     </>
   );
 }
