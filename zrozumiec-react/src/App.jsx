@@ -1,31 +1,39 @@
-import { ButtonStrong } from "./components/ButtonStrong";
+import { useState } from "react";
 
 function App() {
-  const buttonEl = (
-    <button
-      onClick={() => {
-        alert("Klik");
-      }}
-    >
-      Pokaz spoiler
-    </button>
-  );
+  const [isSpoilerShown, setSpoilerShown] = useState(false);
+  const [isWarningShown, setIsWarningShown] = useState(true);
 
+  function handleClick() {
+    setSpoilerShown(true);
+    console.log("handleClick:");
+    setIsWarningShown(false);
+  }
   // document.querySelector("button").addEventListener("click", () => {
   //   alert("Klik");
   // });
+
+  function handleCloseWarningClick() {
+    setIsWarningShown(false);
+  }
 
   return (
     <>
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
       <h2>Fabuła</h2>
+      {isWarningShown && (
+        <p>
+          Uwaga! Opis fabuły zawiera spoiler!
+          <button onClick={handleCloseWarningClick}>X</button>
+        </p>
+      )}
       <p>Dobrzy walcza ze złem. Trzeba wyłączyć pole siłowe.</p>
-      {buttonEl}
-      <ButtonStrong onClick={() => alert("Gruby Klik")}>
-        Pokaz GRUBY spoiler
-      </ButtonStrong>
-      <p>Vader okazuje sie być ojcem Luka.</p>
+      {isSpoilerShown ? (
+        <p>Vader okazuje sie być ojcem Luka.</p>
+      ) : (
+        <button onClick={handleClick}>Pokaz spoiler</button>
+      )}
     </>
   );
 }
