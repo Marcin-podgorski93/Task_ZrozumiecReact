@@ -3,6 +3,7 @@ import { useState } from "react";
 function App() {
   const [isSpoilerShown, setSpoilerShown] = useState(false);
   const [isWarningShown, setIsWarningShown] = useState(true);
+  const [isSection, setSection] = useState(1);
 
   function handleClick() {
     setSpoilerShown(true);
@@ -16,7 +17,6 @@ function App() {
   function handleCloseWarningClick() {
     setIsWarningShown(false);
   }
-
   return (
     <>
       <h1>Gwiezdne wojny V</h1>
@@ -33,6 +33,28 @@ function App() {
         <p>Vader okazuje sie być ojcem Luka.</p>
       ) : (
         <button onClick={handleClick}>Pokaz spoiler</button>
+      )}
+      <h1>Ciekawostki o borsukach</h1>
+      <button onClick={() => setSection(1)}>1</button>
+      <button onClick={() => setSection(2)}>2</button>
+      <button onClick={() => setSection(3)}>3</button>
+      {isSection === 1 && (
+        <section>
+          <h2>Ciekawostka 1</h2>
+          <p>Borsuki to ssaki z rodziny łasicowatych.</p>
+        </section>
+      )}
+      {isSection === 2 && (
+        <section>
+          <h2>Ciekawostka 2</h2>
+          <p>Ich dieta obejmuje owady i rośliny.</p>
+        </section>
+      )}
+      {isSection === 3 && (
+        <section>
+          <h2>Ciekawostka 3</h2>
+          <p>Borsuki są aktywne nocą.</p>
+        </section>
       )}
     </>
   );
