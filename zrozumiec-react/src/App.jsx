@@ -4,6 +4,7 @@ function App() {
   const [isSpoilerShown, setSpoilerShown] = useState(false);
   const [isWarningShown, setIsWarningShown] = useState(true);
   const [isSection, setSection] = useState(1);
+  const [numbersOfLikes, setNumberOfLikes] = useState(50);
 
   function handleClick() {
     setSpoilerShown(true);
@@ -17,10 +18,17 @@ function App() {
   function handleCloseWarningClick() {
     setIsWarningShown(false);
   }
+
+  function handleLikeButtonClick() {
+    setNumberOfLikes(numbersOfLikes + 1);
+  }
+
   return (
     <>
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
+      <h2>Liczba polubień: {numbersOfLikes}</h2>
+      <button onClick={handleLikeButtonClick}>Lubie to!</button>
       <h2>Fabuła</h2>
       {isWarningShown && (
         <p>
