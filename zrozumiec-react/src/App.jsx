@@ -5,6 +5,14 @@ function App() {
   const [isWarningShown, setIsWarningShown] = useState(true);
   const [isSection, setSection] = useState(1);
   const [numbersOfLikes, setNumberOfLikes] = useState(50);
+  const [activeImg, setActiveImg] = useState(0);
+
+  function handlePrevButtonImg() {
+    setActiveImg(activeImg === 0 ? 2 : activeImg - 1);
+  }
+  function handleNextButtonImg() {
+    setActiveImg(activeImg === 2 ? 0 : activeImg + 1);
+  }
 
   function handleClick() {
     setSpoilerShown(true);
@@ -20,7 +28,11 @@ function App() {
   }
 
   function handleLikeButtonClick() {
-    setNumberOfLikes(numbersOfLikes + 1);
+    setNumberOfLikes((prevValue) => prevValue + 1);
+  }
+
+  function handleLoveButtonClick() {
+    setNumberOfLikes((prevValue) => prevValue + 3);
   }
 
   return (
@@ -29,6 +41,7 @@ function App() {
       <h2>Rok produkcji</h2>
       <h2>Liczba polubień: {numbersOfLikes}</h2>
       <button onClick={handleLikeButtonClick}>Lubie to!</button>
+      <button onClick={handleLoveButtonClick}>Kocham To!</button>
       <h2>Fabuła</h2>
       {isWarningShown && (
         <p>
@@ -64,6 +77,19 @@ function App() {
           <p>Borsuki są aktywne nocą.</p>
         </section>
       )}
+      <button onClick={handlePrevButtonImg}>Poprzednie</button>
+      <button onClick={handleNextButtonImg}>Następne</button>
+      <div>
+        {activeImg === 0 && (
+          <img src="https://zrozumiecreact.pl/dog.jpg" width="400" />
+        )}
+        {activeImg === 1 && (
+          <img src="https://zrozumiecreact.pl/cat.jpg" width="400" />
+        )}
+        {activeImg === 2 && (
+          <img src="https://zrozumiecreact.pl/duck.jpg" width="400" />
+        )}
+      </div>
     </>
   );
 }
