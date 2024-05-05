@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Form } from "./components/Form";
 
 function App() {
   const [isSpoilerShown, setSpoilerShown] = useState(false);
@@ -90,6 +91,7 @@ function App() {
           <img src="https://zrozumiecreact.pl/duck.jpg" width="400" />
         )}
       </div>
+      <Form />
     </>
   );
 }
