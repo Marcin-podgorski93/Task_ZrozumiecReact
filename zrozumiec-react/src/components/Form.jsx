@@ -47,7 +47,12 @@ export function Form() {
             onChange={(e) => setareaVale(e.target.value)}
           ></textarea>
         </div>
-        <button type="submit">Przeslij</button>
+        <button
+          type="submit"
+          disabled={inputValue.length === 0 || textareaValue === ""}
+        >
+          Przeslij
+        </button>
       </form>
     </>
   );
