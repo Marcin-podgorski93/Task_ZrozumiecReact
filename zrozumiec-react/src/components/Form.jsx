@@ -1,31 +1,41 @@
 import { useState } from "react";
+import { Review } from "./Review";
+
+const initialReviews = [
+  { author: "Brian", text: "Najlepszy film!", id: 1 },
+  { author: "Jessica", text: "Podobal mi sie, duzo akcji!", id: 2 },
+];
 
 export function Form() {
-  const [review, setReview] = useState(null);
+  // state for initialReviews
+  const [reviews, setReviews] = useState(initialReviews);
   const [inputValue, setInputVale] = useState("");
   const [textareaValue, setareaVale] = useState("");
 
+  const reviewsElement = reviews.map((r) => (
+    <Review key={r.id} author={r.author} text={r.text} />
+  ));
+
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e);
-
+    // console.log(e);
+    // we can use : setReview({ inputValue, textareaValue });
     const author = inputValue;
     const text = textareaValue;
-    console.log(author);
-    console.log(text);
-    setReview({ author, text });
-    // we can use : setReview({ inputValue, textareaValue });
+
+    setReviews((prevReview) => {
+      return [{ author, text, id: prevReview.length + 1 }, ...prevReview];
+    });
+
+    setInputVale("");
+    setareaVale("");
   }
 
   return (
     <>
+      <hr />
+      <ul>{reviewsElement}</ul>
       <h1>Dodaj recenzje</h1>
-      {review && (
-        <>
-          <h2>{review.author}</h2>
-          <h3>{review.text}</h3>
-        </>
-      )}
       <form onSubmit={handleSubmit}>
         <div>
           <div>
@@ -35,6 +45,7 @@ export function Form() {
             type="text"
             name="author"
             id="author"
+            value={inputValue}
             onChange={(e) => setInputVale(e.target.value)}
           />
         </div>
@@ -45,6 +56,7 @@ export function Form() {
           <textarea
             name="text"
             id="text"
+            value={textareaValue}
             onChange={(e) => setareaVale(e.target.value)}
           ></textarea>
         </div>

@@ -111,6 +111,7 @@ function App() {
           <img src="https://zrozumiecreact.pl/duck.jpg" width="400" />
         )}
       </div>
+      {/* Recenzja Filmu */}
       <Form />
       {/* Country List */}
       <h1>Lista krajów:</h1>
