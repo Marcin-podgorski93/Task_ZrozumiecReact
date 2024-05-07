@@ -1,5 +1,8 @@
 import { useState } from "react";
 import { Form } from "./components/Form";
+import { Reviews } from "./components/Reviews";
+import { Person } from "./components/Person";
+import { Input } from "./components/Input";
 
 const countries = [
   { name: "Polska", continent: "Europa" },
@@ -10,7 +13,14 @@ const countries = [
   { name: "Włochy", continent: "Europa" },
 ];
 
+const initialReviews = [
+  { author: "Brian", text: "Najlepszy film!", id: 1 },
+  { author: "Jessica", text: "Podobal mi sie, duzo akcji!", id: 2 },
+];
+
 function App() {
+  const [name, setName] = useState("Jan");
+  const [reviews, setReviews] = useState(initialReviews);
   // List countries
   const [filter, setFilter] = useState("Dowolny");
   const [isSpoilerShown, setSpoilerShown] = useState(false);
@@ -111,8 +121,15 @@ function App() {
           <img src="https://zrozumiecreact.pl/duck.jpg" width="400" />
         )}
       </div>
+      <Reviews reviews={reviews} />
       {/* Recenzja Filmu */}
-      <Form />
+      <Form
+        onReviewSubmit={(author, text) => {
+          setReviews((prevReview) => {
+            return [{ author, text, id: prevReview.length + 1 }, ...prevReview];
+          });
+        }}
+      />
       {/* Country List */}
       <h1>Lista krajów:</h1>
       <select value={filter} onChange={(e) => setFilter(e.target.value)}>
@@ -129,6 +146,9 @@ function App() {
           <li key={country.name}>{country.name}</li>
         ))}
       </ul>
+      {/* Task  */}
+      <Person name={name} clearText={setName} />
+      <Input value={name} setter={setName} />
     </>
   );
 }
