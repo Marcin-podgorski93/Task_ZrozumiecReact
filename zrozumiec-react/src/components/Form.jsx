@@ -14,6 +14,7 @@ export function Form() {
     console.log(author);
     console.log(text);
     setReview({ author, text });
+    // we can use : setReview({ inputValue, textareaValue });
   }
 
   return (

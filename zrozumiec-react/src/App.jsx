@@ -1,7 +1,18 @@
 import { useState } from "react";
 import { Form } from "./components/Form";
 
+const countries = [
+  { name: "Polska", continent: "Europa" },
+  { name: "Chiny", continent: "Azja" },
+  { name: "Kongo", continent: "Afryka" },
+  { name: "Francja", continent: "Europa" },
+  { name: "Australia", continent: "Australia" },
+  { name: "Włochy", continent: "Europa" },
+];
+
 function App() {
+  // List countries
+  const [filter, setFilter] = useState("Dowolny");
   const [isSpoilerShown, setSpoilerShown] = useState(false);
   const [isWarningShown, setIsWarningShown] = useState(true);
   const [isSection, setSection] = useState(1);
@@ -35,6 +46,15 @@ function App() {
   function handleLoveButtonClick() {
     setNumberOfLikes((prevValue) => prevValue + 3);
   }
+
+  const filterCountries =
+    filter === "Dowolny"
+      ? countries
+      : countries.filter((country) => country.continent === filter);
+
+  // console.log(filterCountries);
+
+  // console.log(filter);
 
   return (
     <>
@@ -92,6 +112,22 @@ function App() {
         )}
       </div>
       <Form />
+      {/* Country List */}
+      <h1>Lista krajów:</h1>
+      <select value={filter} onChange={(e) => setFilter(e.target.value)}>
+        <option selected value="Dowolny">
+          Dowolny Kontynent
+        </option>
+        <option value="Azja">Azja</option>
+        <option value="Afryka">Afryka</option>
+        <option value="Australia">Australia</option>
+        <option value="Europa">Europa</option>
+      </select>
+      <ul>
+        {filterCountries.map((country) => (
+          <li key={country.name}>{country.name}</li>
+        ))}
+      </ul>
     </>
   );
 }
