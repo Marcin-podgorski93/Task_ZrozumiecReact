@@ -4,6 +4,7 @@ import { Reviews } from "./components/Reviews";
 import { Person } from "./components/Person";
 import { Input } from "./components/Input";
 import { CheckForm } from "./components/CheckForm";
+import { RadioForm } from "./components/RadioForm";
 
 const countries = [
   { name: "Polska", continent: "Europa" },
@@ -112,6 +113,8 @@ function App() {
       <div>
         <CheckForm />
       </div>
+      <br />
+      <RadioForm />
       <br />
       <button onClick={handlePrevButtonImg}>Poprzednie</button>
       <button onClick={handleNextButtonImg}>Następne</button>
