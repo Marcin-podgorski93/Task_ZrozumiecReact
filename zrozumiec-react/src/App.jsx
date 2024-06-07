@@ -3,6 +3,7 @@ import { Form } from "./components/Form";
 import { Reviews } from "./components/Reviews";
 import { Person } from "./components/Person";
 import { Input } from "./components/Input";
+import { CheckForm } from "./components/CheckForm";
 
 const countries = [
   { name: "Polska", continent: "Europa" },
@@ -108,6 +109,10 @@ function App() {
           <p>Borsuki są aktywne nocą.</p>
         </section>
       )}
+      <div>
+        <CheckForm />
+      </div>
+      <br />
       <button onClick={handlePrevButtonImg}>Poprzednie</button>
       <button onClick={handleNextButtonImg}>Następne</button>
       <div>
