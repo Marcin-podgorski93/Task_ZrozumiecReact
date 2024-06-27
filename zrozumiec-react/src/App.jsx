@@ -60,6 +60,16 @@ function App() {
     setNumberOfLikes((prevValue) => prevValue + 3);
   }
 
+  function showAlert(score) {
+    if (score === 5) {
+      alert("Dziekujemy bardzo! :)");
+    } else if (score > 2) {
+      alert("Dziekujemy !");
+    } else if (score < 2) {
+      alert("Przykro nam :(");
+    }
+  }
+
   const filterCountries =
     filter === "Dowolny"
       ? countries
@@ -159,6 +169,15 @@ function App() {
       {/* Task  */}
       <Person name={name} clearText={setName} />
       <Input value={name} setter={setName} />
+
+      <div>
+        <h1>Oceń usługę:</h1>
+        <button onClick={() => showAlert(1)}>1</button>
+        <button onClick={() => showAlert(2)}>2</button>
+        <button onClick={() => showAlert(3)}>3</button>
+        <button onClick={() => showAlert(4)}>4</button>
+        <button onClick={() => showAlert(5)}>5</button>
+      </div>
     </>
   );
 }
