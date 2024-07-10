@@ -81,6 +81,7 @@ function App() {
 
   return (
     <>
+      <button>Pokaz spoiler</button>
       <Form2 />
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
