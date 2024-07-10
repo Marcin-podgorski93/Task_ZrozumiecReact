@@ -22,7 +22,8 @@ const initialReviews = [
 ];
 
 function App() {
-  const [isSpoilerShow, setSpoilerShow] = useState(true);
+  const [isSpoilerShow, setSpoilerShow] = useState(false);
+  const [isButtonShown, setButtonShown] = useState(true);
   const [name, setName] = useState("Jan");
   const [reviews, setReviews] = useState(initialReviews);
   // List countries
@@ -32,6 +33,11 @@ function App() {
   const [isSection, setSection] = useState(1);
   const [numbersOfLikes, setNumberOfLikes] = useState(50);
   const [activeImg, setActiveImg] = useState(0);
+
+  function handleButton() {
+    setSpoilerShow(true);
+    setButtonShown(false);
+  }
 
   function handlePrevButtonImg() {
     setActiveImg(activeImg === 0 ? 2 : activeImg - 1);
@@ -82,7 +88,7 @@ function App() {
 
   return (
     <>
-      <button>Pokaz spoiler</button>
+      {isButtonShown && <button onClick={handleButton}>Pokaz spoiler</button>}
       {isSpoilerShow && <p>Anglia wygrala z Holandia</p>}
       <Form2 />
       <h1>Gwiezdne wojny V</h1>
