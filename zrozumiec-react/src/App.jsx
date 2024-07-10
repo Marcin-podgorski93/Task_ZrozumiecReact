@@ -22,6 +22,7 @@ const initialReviews = [
 ];
 
 function App() {
+  const [isSpoilerShow, setSpoilerShow] = useState(true);
   const [name, setName] = useState("Jan");
   const [reviews, setReviews] = useState(initialReviews);
   // List countries
@@ -82,6 +83,7 @@ function App() {
   return (
     <>
       <button>Pokaz spoiler</button>
+      {isSpoilerShow && <p>Anglia wygrala z Holandia</p>}
       <Form2 />
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
