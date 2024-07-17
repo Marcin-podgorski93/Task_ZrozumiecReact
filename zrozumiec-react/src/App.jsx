@@ -22,6 +22,7 @@ const initialReviews = [
 ];
 
 function App() {
+  const [isWarning, setWarning] = useState(true);
   const [isSpoilerShow, setSpoilerShow] = useState(false);
   const [isButtonShown, setButtonShown] = useState(true);
   const [name, setName] = useState("Jan");
@@ -88,6 +89,12 @@ function App() {
 
   return (
     <>
+      {isWarning && (
+        <p>
+          Uwaga !!! Opis fabuły zawiera spoiler!
+          <button>X</button>
+        </p>
+      )}
       {isButtonShown && <button onClick={handleButton}>Pokaz spoiler</button>}
       {isSpoilerShow && <p>Anglia wygrala z Holandia</p>}
       <Form2 />
