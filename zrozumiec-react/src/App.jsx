@@ -6,6 +6,7 @@ import { Input } from "./components/Input";
 import { CheckForm } from "./components/CheckForm";
 import { RadioForm } from "./components/RadioForm";
 import { Form2 } from "./components/Form2";
+import { Pictures } from "./components/Pictures";
 
 const countries = [
   { name: "Polska", continent: "Europa" },
@@ -32,7 +33,6 @@ function App() {
   const [isWarningShown, setIsWarningShown] = useState(true);
   const [isSection, setSection] = useState(1);
   const [numbersOfLikes, setNumberOfLikes] = useState(50);
-  const [activeImg, setActiveImg] = useState(0);
 
   function handleWarningButton() {
     setWarning(false);
@@ -41,13 +41,6 @@ function App() {
   function handleButton() {
     setSpoilerShow(true);
     setWarning(false);
-  }
-
-  function handlePrevButtonImg() {
-    setActiveImg(activeImg === 0 ? 2 : activeImg - 1);
-  }
-  function handleNextButtonImg() {
-    setActiveImg(activeImg === 2 ? 0 : activeImg + 1);
   }
 
   function handleClick() {
@@ -150,19 +143,8 @@ function App() {
       <br />
       <RadioForm />
       <br />
-      <button onClick={handlePrevButtonImg}>Poprzednie</button>
-      <button onClick={handleNextButtonImg}>Następne</button>
-      <div>
-        {activeImg === 0 && (
-          <img src="https://zrozumiecreact.pl/dog.jpg" width="400" />
-        )}
-        {activeImg === 1 && (
-          <img src="https://zrozumiecreact.pl/cat.jpg" width="400" />
-        )}
-        {activeImg === 2 && (
-          <img src="https://zrozumiecreact.pl/duck.jpg" width="400" />
-        )}
-      </div>
+      <Pictures />
+
       <Reviews reviews={reviews} />
       {/* Recenzja Filmu */}
       <Form
