@@ -1,6 +1,9 @@
 export function Form2() {
   function handleSubmit(e) {
     e.preventDefault();
+    // console.log(e);
+    console.log(e.target[0].value);
+    console.log(e.target[1].value);
     // console.log(e.target[0].value);
     // console.log(e.target[1].value);
 
@@ -18,7 +21,7 @@ export function Form2() {
           <div>
             <label htmlFor="author">Autor</label>
           </div>
-          <input type="text" />
+          <input type="text" name="author" id="author" />
         </div>
         <div>
           <div>
@@ -26,7 +29,7 @@ export function Form2() {
           </div>
           <textarea name="text" id="text" cols="20" rows="5"></textarea>
         </div>
-        <button>Przeslij</button>
+        <button type="submit">Przeslij</button>
       </form>
     </>
   );
