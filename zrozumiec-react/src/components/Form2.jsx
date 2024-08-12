@@ -1,9 +1,23 @@
+import { useState } from "react";
+
 export function Form2() {
+  const [review, setReview] = useState(null);
+
+  console.log(review);
+
   function handleSubmit(e) {
     e.preventDefault();
     // console.log(e);
     console.log(e.target[0].value);
     console.log(e.target[1].value);
+
+    // or
+    const author = e.target[0].value;
+    const text = e.target[1].value;
+    console.log(author);
+    console.log(text);
+
+    setReview({ author, text });
     // console.log(e.target[0].value);
     // console.log(e.target[1].value);
 
