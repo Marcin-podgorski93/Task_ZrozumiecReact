@@ -3,7 +3,9 @@ import { useState } from "react";
 export function Form2() {
   const [review, setReview] = useState(null);
 
-  console.log(review);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  console.log(isAdmin);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,7 +19,7 @@ export function Form2() {
     console.log(author);
     console.log(text);
 
-    setReview({ author, text });
+    setReview({ author, text, isAdmin });
     // console.log(e.target[0].value);
     // console.log(e.target[1].value);
 
@@ -30,6 +32,13 @@ export function Form2() {
   return (
     <>
       <h1>Dodaj recenzje</h1>
+      {review && (
+        <>
+          <h2>{review.author}</h2>
+          <h3>{review.text}</h3>
+          <p>{review.isAdmin ? "Administrator" : "Uzytkownik"}</p>
+        </>
+      )}
       <form onSubmit={handleSubmit}>
         <div>
           <div>
@@ -47,7 +56,12 @@ export function Form2() {
         <div>
           <label htmlFor="admin">
             Admin:
-            <input id="admin" type="checkbox" />
+            <input
+              id="admin"
+              type="checkbox"
+              checked={isAdmin}
+              onChange={(e) => setIsAdmin(e.target.checked)}
+            />
           </label>
         </div>
         <br />
