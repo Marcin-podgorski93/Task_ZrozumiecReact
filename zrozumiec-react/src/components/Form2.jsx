@@ -7,7 +7,7 @@ export function Form2() {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // console.log(e);
+    console.log(e.target[2].checked);
     console.log(e.target[0].value);
     console.log(e.target[1].value);
 
@@ -43,6 +43,14 @@ export function Form2() {
           </div>
           <textarea name="text" id="text" cols="20" rows="5"></textarea>
         </div>
+        <br />
+        <div>
+          <label htmlFor="admin">
+            Admin:
+            <input id="admin" type="checkbox" />
+          </label>
+        </div>
+        <br />
         <button type="submit">Przeslij</button>
       </form>
     </>
