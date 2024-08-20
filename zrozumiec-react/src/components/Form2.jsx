@@ -3,19 +3,23 @@ import { useState } from "react";
 export function Form2() {
   const [review, setReview] = useState(null);
 
+  const [inputValue, setInputValue] = useState("");
+
+  const [textAreaValue, setAreaValue] = useState("");
+
   const [isAdmin, setIsAdmin] = useState(false);
 
   console.log(isAdmin);
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(e.target[2].checked);
-    console.log(e.target[0].value);
-    console.log(e.target[1].value);
+    // console.log(e.target[2].checked);
+    // console.log(e.target[0].value);
+    // console.log(e.target[1].value);
 
     // or
-    const author = e.target[0].value;
-    const text = e.target[1].value;
+    const author = inputValue;
+    const text = textAreaValue;
     console.log(author);
     console.log(text);
 
@@ -44,13 +48,26 @@ export function Form2() {
           <div>
             <label htmlFor="author">Autor</label>
           </div>
-          <input type="text" name="author" id="author" />
+          <input
+            type="text"
+            name="author"
+            id="author"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+          />
         </div>
         <div>
           <div>
             <label htmlFor="text">Tekst</label>
           </div>
-          <textarea name="text" id="text" cols="20" rows="5"></textarea>
+          <textarea
+            name="text"
+            id="text"
+            cols="20"
+            rows="5"
+            value={inputValue}
+            onChange={(e) => setAreaValue(e.target.value)}
+          ></textarea>
         </div>
         <br />
         <div>
