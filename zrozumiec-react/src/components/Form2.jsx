@@ -65,7 +65,7 @@ export function Form2() {
             id="text"
             cols="20"
             rows="5"
-            value={inputValue}
+            value={textAreaValue}
             onChange={(e) => setAreaValue(e.target.value)}
           ></textarea>
         </div>
@@ -82,7 +82,12 @@ export function Form2() {
           </label>
         </div>
         <br />
-        <button type="submit">Przeslij</button>
+        <button
+          type="submit"
+          disabled={inputValue.length === 0 || textAreaValue === ""}
+        >
+          Przeslij
+        </button>
       </form>
     </>
   );
