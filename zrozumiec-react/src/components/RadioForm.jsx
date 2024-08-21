@@ -6,6 +6,10 @@ export function RadioForm() {
 
   const [person, setPerson] = useState(null);
 
+  const arrayNumbers = [1, 2, 3].map((number) => (
+    <li key={number}> Linia {number}</li>
+  ));
+
   console.log(role);
 
   function handleSubmit(e) {
@@ -21,6 +25,7 @@ export function RadioForm() {
 
   return (
     <>
+      <ul>{arrayNumbers}</ul>
       <h1>Dane osobowe:</h1>
       {person && (
         <>
