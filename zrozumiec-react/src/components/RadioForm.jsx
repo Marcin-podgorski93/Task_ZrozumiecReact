@@ -6,11 +6,14 @@ export function RadioForm() {
 
   const [person, setPerson] = useState(null);
 
+  console.log(role);
+
   function handleSubmit(e) {
-    console.log(e.target[0].value);
-    console.log(e.target[1].checked);
-    console.log(e.target[2].checked);
-    console.log(e.target[3].checked);
+    console.log(e);
+    // console.log(e.target[0].value);
+    // console.log(e.target[1].checked);
+    // console.log(e.target[2].checked);
+    // console.log(e.target[3].checked);
     e.preventDefault();
     setPerson({ name, role });
     setName("");
