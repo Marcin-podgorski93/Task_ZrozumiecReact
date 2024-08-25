@@ -35,6 +35,10 @@ export function Form2() {
     console.log(author);
     console.log(text);
 
+    const newReview = { author, text };
+
+    setReviews((prevReviews) => [...prevReviews, newReview]);
+
     // console.log(e.target[0].value);
     // console.log(e.target[1].value);
 
