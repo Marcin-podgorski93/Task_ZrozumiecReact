@@ -11,6 +11,11 @@ export function Form2() {
 
   console.log(isAdmin);
 
+  const initialReview = [
+    { author: "Braian", text: "Najlepszy film ever!", id: 1 },
+    { author: "Jessica", text: "Za malo akcji !", id: 1 },
+  ];
+
   function handleSubmit(e) {
     e.preventDefault();
     // console.log(e.target[2].checked);
