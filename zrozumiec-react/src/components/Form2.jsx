@@ -1,7 +1,12 @@
 import { useState } from "react";
 
+const initialReviews = [
+  { author: "Jessica", text: "Super film!", id: 1 },
+  { author: "Braian", text: "Nie podobal mi sie ", id: 1 },
+];
+
 export function Form2() {
-  const [review, setReview] = useState(null);
+  const [reviews, setReviews] = useState(initialReviews);
 
   const [inputValue, setInputValue] = useState("");
 
@@ -9,12 +14,14 @@ export function Form2() {
 
   const [isAdmin, setIsAdmin] = useState(false);
 
-  console.log(isAdmin);
+  const reviewsElement = reviews.map((r) => (
+    <article key={r.id}>
+      <strong>{r.author}</strong>
+      <p>{r.text}</p>
+    </article>
+  ));
 
-  const initialReview = [
-    { author: "Braian", text: "Najlepszy film ever!", id: 1 },
-    { author: "Jessica", text: "Za malo akcji !", id: 1 },
-  ];
+  console.log(isAdmin);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -28,7 +35,6 @@ export function Form2() {
     console.log(author);
     console.log(text);
 
-    setReview({ author, text, isAdmin });
     // console.log(e.target[0].value);
     // console.log(e.target[1].value);
 
@@ -40,14 +46,8 @@ export function Form2() {
 
   return (
     <>
+      <ul>{reviewsElement}</ul>
       <h1>Dodaj recenzje</h1>
-      {review && (
-        <>
-          <h2>{review.author}</h2>
-          <h3>{review.text}</h3>
-          <p>{review.isAdmin ? "Administrator" : "Uzytkownik"}</p>
-        </>
-      )}
       <form onSubmit={handleSubmit}>
         <div>
           <div>
