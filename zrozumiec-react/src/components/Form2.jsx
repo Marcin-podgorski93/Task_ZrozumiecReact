@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const initialReviews = [
   { author: "Jessica", text: "Super film!", id: 1 },
-  { author: "Braian", text: "Nie podobal mi sie ", id: 1 },
+  { author: "Braian", text: "Nie podobal mi sie ", id: 2 },
 ];
 
 export function Form2() {
@@ -35,10 +35,12 @@ export function Form2() {
     console.log(author);
     console.log(text);
 
-    const newReview = { author, text };
+    setReviews((prevReviews) => {
+      return [...prevReviews, { author, text, id: prevReviews.length + 1 }];
+    });
 
-    setReviews((prevReviews) => [...prevReviews, newReview]);
-
+    setInputValue("");
+    setAreaValue("");
     // console.log(e.target[0].value);
     // console.log(e.target[1].value);
 
