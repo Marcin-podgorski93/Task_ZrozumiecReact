@@ -7,6 +7,7 @@ import { CheckForm } from "./components/CheckForm";
 import { RadioForm } from "./components/RadioForm";
 import { Form2 } from "./components/Form2";
 import { Pictures } from "./components/Pictures";
+import { Select1 } from "./components/select";
 
 const countries = [
   { name: "Polska", continent: "Europa" },
@@ -97,6 +98,7 @@ function App() {
         <button onClick={handleButton}>Pokaz spoiler</button>
       )}
       <Form2 />
+      <Select1 />
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
       <h2>Liczba polubień: {numbersOfLikes}</h2>
