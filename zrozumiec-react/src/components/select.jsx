@@ -14,6 +14,14 @@ export function Select1() {
 
   console.log(filter);
 
+  const handleSelect =
+    filter === "Dowolny"
+      ? countries
+      : countries.filter((country) => country.continent === filter);
+
+  console.log("Wybrany kontynent:", filter);
+  console.log("Wybrane kraje:", handleSelect);
+
   return (
     <>
       <h1>Select</h1>
@@ -25,7 +33,11 @@ export function Select1() {
         <option value="Australia">Australia</option>
         <option value="Afryka">Afryka</option>
       </select>
-      <ul></ul>
+      <ul>
+        {handleSelect.map((country) => (
+          <li key={country.name}>{country.name}</li>
+        ))}
+      </ul>
     </>
   );
 }
