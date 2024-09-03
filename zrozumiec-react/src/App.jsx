@@ -94,7 +94,9 @@ function App() {
       <Select1 />
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
-      <button onClick={() => setCounterShown(false)}>Schowaj counter</button>
+      <button onClick={() => setCounterShown((prevValue) => !prevValue)}>
+        {counterShown ? "Schowaj counter" : "Pokaz Counter"}
+      </button>
       {counterShown && <LikesCounter />}
       <h2>Fabuła</h2>
       {isWarningShown && (
