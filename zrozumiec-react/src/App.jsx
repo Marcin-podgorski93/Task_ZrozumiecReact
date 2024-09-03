@@ -8,6 +8,7 @@ import { RadioForm } from "./components/RadioForm";
 import { Form2 } from "./components/Form2";
 import { Pictures } from "./components/Pictures";
 import { Select1 } from "./components/select";
+import { LikesCounter } from "./components/LikesCounter";
 
 const countries = [
   { name: "Polska", continent: "Europa" },
@@ -33,7 +34,6 @@ function App() {
   const [isSpoilerShown, setSpoilerShown] = useState(false);
   const [isWarningShown, setIsWarningShown] = useState(true);
   const [isSection, setSection] = useState(1);
-  const [numbersOfLikes, setNumberOfLikes] = useState(50);
 
   function handleWarningButton() {
     setWarning(false);
@@ -55,14 +55,6 @@ function App() {
 
   function handleCloseWarningClick() {
     setIsWarningShown(false);
-  }
-
-  function handleLikeButtonClick() {
-    setNumberOfLikes((prevValue) => prevValue + 1);
-  }
-
-  function handleLoveButtonClick() {
-    setNumberOfLikes((prevValue) => prevValue + 3);
   }
 
   function showAlert(score) {
@@ -101,9 +93,7 @@ function App() {
       <Select1 />
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
-      <h2>Liczba polubień: {numbersOfLikes}</h2>
-      <button onClick={handleLikeButtonClick}>Lubie to!</button>
-      <button onClick={handleLoveButtonClick}>Kocham To!</button>
+      <LikesCounter />
       <h2>Fabuła</h2>
       {isWarningShown && (
         <p>
