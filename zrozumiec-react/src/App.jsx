@@ -34,6 +34,7 @@ function App() {
   const [isSpoilerShown, setSpoilerShown] = useState(false);
   const [isWarningShown, setIsWarningShown] = useState(true);
   const [isSection, setSection] = useState(1);
+  const [counterShown, setCounterShown] = useState(true);
 
   function handleWarningButton() {
     setWarning(false);
@@ -93,7 +94,8 @@ function App() {
       <Select1 />
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
-      <LikesCounter />
+      <button onClick={() => setCounterShown(false)}>Schowaj counter</button>
+      {counterShown && <LikesCounter />}
       <h2>Fabuła</h2>
       {isWarningShown && (
         <p>
