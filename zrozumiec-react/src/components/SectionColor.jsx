@@ -1,9 +1,24 @@
+import { useState } from "react";
+
 export function SectionColor() {
+  const [selectOption, setSelectedOption] = useState("");
+
+  console.log(selectOption);
+
+  function handleSelect(e) {
+    setSelectedOption(e.target.value);
+  }
+
+  const selectedColor =
+    selectOption.length > 0 ? `subtitle--${selectOption}` : "";
+
+  console.log(selectedColor);
+
   return (
     <>
-      <h1>Color</h1>
+      <h1 className={`subtitle ${selectedColor}`}>Color</h1>
 
-      <select>
+      <select onChange={handleSelect}>
         <option value disabled selected>
           Wybierz dowolny kolor
         </option>
