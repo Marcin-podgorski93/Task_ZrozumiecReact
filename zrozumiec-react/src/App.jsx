@@ -9,6 +9,7 @@ import { Form2 } from "./components/Form2";
 import { Pictures } from "./components/Pictures";
 import { Select1 } from "./components/select";
 import { LikesCounter } from "./components/LikesCounter";
+import { SectionColor } from "./components/SectionColor";
 
 const countries = [
   { name: "Polska", continent: "Europa" },
@@ -91,6 +92,7 @@ function App() {
         <button onClick={handleButton}>Pokaz spoiler</button>
       )}
       <Form2 />
+      <SectionColor />
       <Select1 />
       <h1>Gwiezdne wojny V</h1>
       <h2>Rok produkcji</h2>
