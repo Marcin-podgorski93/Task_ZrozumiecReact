@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./styles.css";
+// import "./styles.css";
 
 export function SectionColor() {
   const [selectOption, setSelectedOption] = useState("");
